@@ -14,7 +14,9 @@ module.exports = {
         references: {
           model: 'Products',
           key: 'id'
-        }
+        },
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE'
       },
       categoryName: {
         type: Sequelize.ENUM('Makanan', 'Pakaian', 'Elektronik', 'Alat Masak', 'Olahraga'),

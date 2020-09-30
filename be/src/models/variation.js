@@ -17,7 +17,8 @@ module.exports = (sequelize, DataTypes) => {
   Variation.init({
     color: DataTypes.STRING,
     size: DataTypes.STRING,
-    material: DataTypes.STRING
+    material: DataTypes.STRING,
+    productId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Variation',
