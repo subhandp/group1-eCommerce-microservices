@@ -1,5 +1,7 @@
 const router = require('express').Router()
+const { validationResult } = require('express-validator');
 const AddressController = require("../controllers/AddressController");
+const { runValidation, validationCreate } = require("../controllers/validation/address")
 
 router.get("/", AddressController.read);
 

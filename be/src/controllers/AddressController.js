@@ -1,5 +1,5 @@
 const models = require('../models')
-const response = require('../helpers/response')
+const response = require('../helpers/response');
 
 
 class AddressController{
@@ -9,7 +9,7 @@ class AddressController{
           } = req;
       
           try {
-            const insert = await models.address.create({
+            const insert = await models.Address.create({
               adminId,
               userId,
               addressName,
@@ -30,7 +30,7 @@ class AddressController{
     
     static async read(req, res) {
         try {
-            const data = await models.address.findAll({ attributes: ["adminId", "userId", "addressName","city","zipcode", "address"],
+            const data = await models.Address.findAll({ attributes: ["adminId", "userId", "addressName","city","zipcode", "address"],
             });
             response.data = data
             response.message = "Data is successfully retrieved"
@@ -46,7 +46,7 @@ class AddressController{
 
      static async find(req, res) {
         const { id } = req.params;
-        const addressdetail = await models.address.findByPk(id);
+        const addressdetail = await models.Address.findByPk(id);
         try {
           if (!addressdetail) throw new Error("Addres not found");
           response.data = addressdetail;
@@ -65,7 +65,7 @@ class AddressController{
             if (req.params.id != req.addressId) {
                 return res.status(401).json("Address not found")
             }
-            const data = await models.address.findByPk(req.userId)
+            const data = await models.Address.findByPk(req.userId)
             await models.address.update(req.body, {
                 where: {
                     id: req.addressId,
@@ -92,7 +92,7 @@ class AddressController{
 
     static async delete(req, res) {
         const { id } = req.params;
-        const data = await models.address.destroy({ 
+        const data = await models.Address.destroy({ 
             where: {
                 id: id
             }
