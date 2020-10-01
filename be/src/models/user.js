@@ -12,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       this.hasMany(models.Address, { foreignKey: 'userId' })
+      this.hasMany(models.Order, { foreignKey: 'userId' })
     }
   };
   User.init({

@@ -14,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
       this.belongsTo(models.Admin, { foreignKey: 'adminId' })
       this.hasMany(models.Category, { foreignKey: 'productId' })
       this.hasMany(models.Variation, { foreignKey: 'productId' })
+      this.hasMany(models.Order_Item, { foreignKey: 'productId' })
     }
   };
   Product.init({
