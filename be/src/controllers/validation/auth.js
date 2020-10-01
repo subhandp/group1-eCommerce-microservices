@@ -10,3 +10,9 @@ exports.runValidation = (req, res, next) => {
     }
     next()
 }
+
+exports.validationLogin = [
+    check('username', "username is required").notEmpty(),
+    check('password', "password is required").notEmpty()
+]
+
