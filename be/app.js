@@ -11,7 +11,10 @@ const port = process.env.PORT || 3000;
 const authRoute = require("./src/routes/auth");
 const userRoute = require('./src/routes/user')
 const productRoute = require('./src/routes/product')
-// const auth = require("./middleware/AuthMiddleware");
+const addresRoute = require('./src/routes/address')
+const orderRoute = require('./src/routes/order')
+const checkoutRoute = require('./src/routes/checkout')
+const auth = require('./src/middleware/auth')
 // const taskScheduler = require("./helpers/taskScheduler");
 
 // untuk cloudinary
@@ -30,7 +33,10 @@ app.get("/", (req, res) => {
 
 app.use("/api/v1/auth", authRoute);
 app.use("/api/v1/user", userRoute);
-app.use('/api/v1/product', productRoute)
+app.use('/api/v1/product', auth, productRoute)
+app.use('/api/v1/address', auth, addresRoute)
+app.use('/api/v1/order', auth, orderRoute)
+app.use('/api/v1/checkout', auth, checkoutRoute)
 
 // taskScheduler();
 
