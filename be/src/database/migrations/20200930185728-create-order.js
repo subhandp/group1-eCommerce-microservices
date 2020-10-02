@@ -40,6 +40,10 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false
       },
+      totalPayment: {
+        type: Sequelize.INTEGER,
+        allowNull: false
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

@@ -8,11 +8,11 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      chekoutId: {
+      orderId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: 'Checkouts',
+          model: 'Orders',
           key: 'id',
         },
         onDelete: 'CASCADE',
