@@ -133,6 +133,10 @@ class Controller {
             const product = await models.Product.findByPk(req.params.id,{
                 include: [
                     {
+                        model: models.Admin,
+                        attributes: ['id', 'address', 'idCity', 'city']
+                    },
+                    {
                         model: models.Category,
                         attributes: ['categoryName']
                     },
@@ -177,7 +181,7 @@ class Controller {
         return res
             .status(200)
             .json(response('Success', 'All data has been retrieved', {
-                data: show,
+                Product: show,
                 totalItems: page.totalItems,
                 totalPages: page.totalPages,
                 currentPage: page.currentPage,
