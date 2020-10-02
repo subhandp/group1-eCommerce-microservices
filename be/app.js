@@ -13,6 +13,7 @@ const userRoute = require('./src/routes/user')
 const productRoute = require('./src/routes/product')
 const addresRoute = require('./src/routes/address')
 const orderRoute = require('./src/routes/order')
+const searchRoute = require('./src/routes/search')
 // const checkoutRoute = require('./src/routes/checkout')
 const auth = require('./src/middleware/auth')
 // const taskScheduler = require("./helpers/taskScheduler");
@@ -36,6 +37,7 @@ app.use("/api/v1/user", userRoute);
 app.use('/api/v1/product', auth, productRoute)
 app.use('/api/v1/address', auth, addresRoute)
 app.use('/api/v1/order', orderRoute)
+app.use('/api/v1/search', searchRoute)
 // app.use('/api/v1/checkout', auth, checkoutRoute)
 
 // taskScheduler();
