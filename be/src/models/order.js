@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       this.belongsTo(models.Discount, { foreignKey: 'discountId' })
       this.belongsTo(models.User, { foreignKey: 'userId' })
-      this.hasMany(models.Checkout, { foreignKey: 'orderId' })
+      this.hasMany(models.Payment, { foreignKey: 'orderId' })
       this.hasMany(models.Order_Item, { foreignKey: 'orderId' })
     }
   };
@@ -22,7 +22,8 @@ module.exports = (sequelize, DataTypes) => {
     userId: DataTypes.INTEGER,
     courierName: DataTypes.STRING,
     courierService: DataTypes.STRING,
-    courierPrice: DataTypes.INTEGER
+    courierPrice: DataTypes.INTEGER,
+    totalPayment: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Order',

@@ -65,8 +65,8 @@ class AddressController{
             if (req.params.id != req.addressId) {
                 return res.status(401).json("Address not found")
             }
-            const data = await models.Address.findByPk(req.userId)
-            await models.address.update(req.body, {
+            const data = await models.Address.findByPk(req.addressId)
+            await models.Address.update(req.body, {
                 where: {
                     id: req.addressId,
                 },
